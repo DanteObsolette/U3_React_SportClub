@@ -15,15 +15,20 @@ function AdminDashboard() {
       <section className="dashboard-panel">
         <div className="panel">
           <h3>Panel de control</h3>
-          <p>Gestione usuarios, roles y accesos del sistema SportClub.</p>
-          <Link to="/admin/users" className="dashboard-button">
-            Ir a Gestión de Usuarios
-          </Link>
+          <p>Gestione usuarios, deportes y accesos del sistema SportClub.</p>
+          <div className="dashboard-links">
+            <Link to="/admin/users" className="dashboard-button">
+              Ir a Gestión de Usuarios
+            </Link>
+            <Link to="/admin/sports" className="dashboard-button">
+              Ir a Gestión de Deportes
+            </Link>
+          </div>
         </div>
 
         <div className="panel">
           <h3>Estadísticas (demo)</h3>
-          <p>Los datos del módulo de usuarios provienen del backend en tiempo real.</p>
+          <p>Los módulos de usuarios y deportes consumen la API del backend SportClub E3.</p>
         </div>
       </section>
     </>

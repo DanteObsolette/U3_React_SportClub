@@ -1,70 +1,25 @@
-const API_URL = "http://localhost:3000/api/users"
+import { apiRequest } from "./apiClient"
 
-function getToken() {
-  return localStorage.getItem("token")
+export function getUsers() {
+  return apiRequest("/users", { method: "GET" })
 }
 
-function getHeaders() {
-  return {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${getToken()}`,
-  }
-}
-
-export async function getUsers() {
-  const response = await fetch(API_URL, {
-    method: "GET",
-    headers: getHeaders(),
-  })
-
-  if (!response.ok) {
-    throw new Error("Error al obtener usuarios")
-  }
-
-  return response.json()
-}
-
-export async function createUser(userData) {
-  const response = await fetch(API_URL, {
+export function createUser(userData) {
+  return apiRequest("/users", {
     method: "POST",
-    headers: getHeaders(),
-    body: JSON.stringify(userData),
+    json: userData,
   })
-
-  const data = await response.json()
-
-  if (!response.ok) {
-    throw new Error(data.message || "Error al crear usuario")
-  }
-
-  return data
 }
 
-export async function updateUser(id, userData) {
-  const response = await fetch(`${API_URL}/${id}`, {
+export function updateUser(id, userData) {
+  return apiRequest(`/users/${encodeURIComponent(id)}`, {
     method: "PUT",
-    headers: getHeaders(),
-    body: JSON.stringify(userData),
+    json: userData,
   })
-
-  const data = await response.json()
-
-  if (!response.ok) {
-    throw new Error(data.message || "Error al actualizar usuario")
-  }
-
-  return data
 }
 
-export async function deleteUser(id) {
-  const response = await fetch(`${API_URL}/${id}`, {
+export function deleteUser(id) {
+  return apiRequest(`/users/${encodeURIComponent(id)}`, {
     method: "DELETE",
-    headers: getHeaders(),
   })
-
-  if (!response.ok) {
-    throw new Error("Error al eliminar usuario")
-  }
-
-  return true
 }
