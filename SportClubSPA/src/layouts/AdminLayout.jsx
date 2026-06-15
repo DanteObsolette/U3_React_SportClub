@@ -19,6 +19,7 @@ function AdminLayout() {
           { to: "/perfil", label: "Mi perfil" },
           { to: "/admin/dashboard", label: "Dashboard" },
           { to: "/admin/users", label: "Usuarios" },
+          { to: "/admin/sports", label: "Deportes" },
         ]}
         showLogout
         onLogout={handleLogout}
