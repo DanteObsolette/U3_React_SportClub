@@ -17,8 +17,8 @@ function UserLayout() {
         links={[
           { to: "/", label: "Inicio" },
           { to: "/perfil", label: "Mi perfil" },
-          { to: "#", label: "Clases", external: true },
-          { to: "#", label: "Reservas", external: true },
+          { to: "/user/dashboard#clases", label: "Clases", external: true },
+          { to: "/user/dashboard#reservas", label: "Reservas", external: true },
           { to: "#", label: "Mi Progreso", external: true },
         ]}
         showLogout

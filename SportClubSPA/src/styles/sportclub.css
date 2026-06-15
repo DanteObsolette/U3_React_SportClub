@@ -388,6 +388,43 @@ p {
     white-space: nowrap;
 }
 
+.class-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.class-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(46, 26, 71, 0.08);
+}
+
+.class-item:last-child {
+    border-bottom: none;
+}
+
+.class-item p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.class-item small {
+    color: #666;
+    font-size: 13px;
+}
+
+.class-item button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
 .btn-table {
     padding: 8px 14px;
     font-size: 13px;
